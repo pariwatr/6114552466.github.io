@@ -1,0 +1,279 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizontal Scroll Jacking Effect Demo</title>
+<style class="cp-pen-styles">
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@-webkit-keyframes 
+fill {  0% {
+ width: 0%;
+ height: 1px;
+}
+ 50% {
+ width: 100%;
+ height: 1px;
+}
+ 100% {
+ width: 100%;
+ height: 100%;
+ background: #fff;
+}
+}
+@keyframes 
+fill {  0% {
+ width: 0%;
+ height: 1px;
+}
+ 50% {
+ width: 100%;
+ height: 1px;
+}
+ 100% {
+ width: 100%;
+ height: 100%;
+ background: #fff;
+}
+}
+@-webkit-keyframes 
+fillColour {  0% {
+ color: #fff;
+}
+ 50% {
+ color: #fff;
+}
+ 100% {
+ color: #333;
+}
+}
+@keyframes 
+fillColour {  0% {
+ color: #fff;
+}
+ 50% {
+ color: #fff;
+}
+ 100% {
+ color: #333;
+}
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  overflow: hidden;
+  font-size: 100%;
+}
+
+nav {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 100;
+  height: 100vh;
+  left: 0;
+  width: 10vw;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+nav a, nav a:visited, nav a:active {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav a {
+  -webkit-transition: color 2s, background 1s;
+  transition: color 2s, background 1s;
+  padding: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+nav a.active { background: rgba(0, 0, 0, 0.9); }
+
+nav a::before {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  background: #555;
+  z-index: -1;
+}
+
+nav a:hover {
+  -webkit-animation: fillColour 0.7s forwards ease-in-out;
+  animation: fillColour 0.7s forwards ease-in-out;
+}
+
+nav a:hover::before {
+  -webkit-animation: fill 0.7s forwards ease-in-out;
+  animation: fill 0.7s forwards ease-in-out;
+  opacity: 1;
+}
+
+.slides {
+  width: 500vw;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+}
+
+.slides .slide {
+  height: 100vh;
+  width: 100vw;
+  background: pink;
+  float: left;
+  text-align: center;
+  background-size: cover;
+}
+
+.slides .slide .content {
+  width: 76.25vw;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 0vh 0 0 15vw;
+  border-radius: 2px;
+}
+
+.slides .slide .content p {
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+}
+
+.slides .slide:nth-child(1) { background-image: url(https://unsplash.it/1800/1200?image=612); }
+
+.slides .slide:nth-child(2) { background-image: url(https://unsplash.it/1800/1200?image=912); }
+
+.slides .slide:nth-child(3) { background-image: url(https://unsplash.it/1800/1200?image=212); }
+
+.slides .slide:nth-child(4) { background-image: url(https://unsplash.it/1800/1200?image=312); }
+
+.slides .slide:nth-child(5) { background-image: url(https://unsplash.it/1800/1200?image=412); }
+
+
+
+.slides .slide img { width: 100%; }
+</style>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li><a href="#1">Overview</a></li>
+    <li><a href="#2">1.Revenue</a></li>
+    <li><a href="#3">2.Revenue Categories</a></li>
+    <li><a href="#4">3.AR By Aging</a></li>
+    <li><a href="#5">4.Corelation of Interest</a></li>
+
+  </ul>
+</nav>
+<div class="slides">
+  <div id="1" class="slide">
+    <div class="content"> 
+  <div class='tableauPlaceholder' id='viz1558155648387' style='position: relative'><noscript><a href=''><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G1G2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVis_6114552466&#47;G1G2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G1G2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1558155648387');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='627px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+  </div>
+  </div>
+  <div id="2" class="slide">
+    <div class="content">
+     <div class='tableauPlaceholder' id='viz1558155669882' style='position: relative'><noscript><a href=''><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVis_6114552466&#47;G3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1558155669882');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+  </div>
+  <div id="3" class="slide">
+    <div class="content">
+     <div class='tableauPlaceholder' id='viz1558184592563' style='position: relative'><noscript><a href=''><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVis_6114552466&#47;G4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1558184592563');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+  </div>
+  <div id="4" class="slide">
+    <div class="content">
+    <div class='tableauPlaceholder' id='viz1558155698568' style='position: relative'><noscript><a href=''><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVis_6114552466&#47;G5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1558155698568');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+  </div>
+  <div id="5" class="slide">
+    <div class="content">
+      <div class='tableauPlaceholder' id='viz1558167899723' style='position: relative'><noscript><a href=''><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DataVis_6114552466&#47;G6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DataVis_6114552466&#47;G6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1558167899723');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+  </div>
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js'></script> 
+<script>
+$(function () {
+    function showSlide(n) {
+        $('body').unbind('mousewheel');
+        currSlide += n;
+        currSlide = currSlide <= 0 ? 0 : currSlide >= $slide.length - 1 ? $slide.length - 1 : currSlide;
+        var displacment = window.innerWidth * currSlide;
+        $('.slides').css('transform', 'translateX(-' + displacment + 'px)');
+        setTimeout(function () {
+            $('body').bind('mousewheel', mouseEvent);
+        }, 800);
+        $('nav a.active').removeClass('active');
+        $($('a')[currSlide]).addClass('active');
+    }
+    function mouseEvent(e, delta) {
+        showSlide(delta >= 0 ? 1 : -1);
+        e.preventDefault();
+    }
+    $('nav a').click(function (e) {
+        var newslide = parseInt($(this).attr('href')[1]);
+        var diff = newslide - currSlide - 1;
+        showSlide(diff);
+        e.preventDefault();
+    });
+    $(window).resize(function () {
+        var displacment = window.innerWidth * currSlide;
+        $('.slides').css('transform', 'translateX(-' + displacment + 'px)');
+    });
+    var currSlide = 0;
+    var $slide = $('.slide');
+    $($('nav a')[0]).addClass('active');
+    $('body').bind('mousewheel', mouseEvent);
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
